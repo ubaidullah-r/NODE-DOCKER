@@ -6,6 +6,7 @@ const RedisStore = require("connect-redis").default
 const {MONGO_USER,MONGO_PASSWORD, MONGO_IP, MONGO_PORT, REDIS_URL, SESSION_SECRET, REDIS_PORT} = require("./config/config.js");
 const postRouter = require("./routes/postRoutes");
 const userRouter = require("./routes/userRoutes");
+
 let redisClient = redis.createClient({
   host: REDIS_URL,
   port: REDIS_PORT,
@@ -37,7 +38,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     httpOnly: true,
-    maxAge: 30000
+    maxAge: 300000
   }
 
 }))
