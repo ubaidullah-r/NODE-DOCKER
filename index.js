@@ -1,5 +1,7 @@
 const express = require("express");
 const mongoose = require('mongoose');
+const cors = require("cors");
+
 /*
 const session = require("express-session");
 const redis = require("redis");
@@ -32,6 +34,8 @@ const connectWithRetry = () => {
 }
 
 connectWithRetry();
+app.enable("trust proxy");
+app.use(cors({}));
 
 app.use(
   session({
@@ -50,8 +54,9 @@ app.use(
 
 app.use(express.json());
 
-app.get("/", (req, res) => {
-    res.send("<h1>Hi There</h1>")
+app.get("/api/v1", (req, res) => {
+    res.send("<h1>Hi There</h1>");
+    console.log("hi there, sweety");
 })
 
 app.use("/api/v1/posts", postRouter)
