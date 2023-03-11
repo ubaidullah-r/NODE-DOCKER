@@ -2,7 +2,7 @@ version: '3'
 services:
   node-app:
     build: .
-    image: ubaidullah21/node-app
+    image: ubaidullah21/node-app:v1
     environment:
       - PORT=3000
     depends_on:
